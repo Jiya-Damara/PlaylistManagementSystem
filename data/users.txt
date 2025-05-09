@@ -1,0 +1,3 @@
+admin,admin123,Admin
+anmol,anmol123,User
+John Doe,123,User
