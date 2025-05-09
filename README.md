@@ -1,132 +1,159 @@
-### Music Playlist System 🎵
+### 🎵 Music Playlist System
 
-## Overview 📖
+## 📖 Overview
 
-The Music Playlist System is a Java-based console application designed to manage music playlists using data structures and algorithms. It leverages singly linked lists to store users, playlists, and songs, providing functionalities like user registration, playlist creation, song management, and playback. A bubble sort algorithm sorts playlists alphabetically, ensuring a seamless user experience. 🚀
+The Music Playlist System is a Java-based console application that manages music playlists using custom-implemented data structures. It uses singly linked lists to efficiently store and manage users, playlists, and songs, providing a comprehensive music management solution with persistent storage.
 
-## Features ✨
+## ✨ Features
 
-- **User Management 👤**: Register and log in users with unique usernames and password validation.
-- **Playlist Management 📚**: Create playlists, add/remove songs, and sort playlists by name.
-- **Song Playback 🎧**: Select and "play" songs by displaying their details.
-- **Data Structures 🗂️**: Uses singly linked lists (SongLinkedList, PlaylistLinkedList, UserLinkedList, StringLinkedList) for dynamic storage.
-- **Algorithm ⚙️**: Implements bubble sort for alphabetical playlist sorting.
-- **Error Handling 🛡️**: Robust validation for invalid inputs and edge cases.
+### 👤 User Management
 
-
-## Prerequisites 🛠️
-
-- Java Development Kit (JDK) 8 or higher ☕
-- A Java-compatible IDE (e.g., IntelliJ IDEA, Eclipse) or command-line environment 💻
+- **User Registration**: Create individual accounts with username and password
+- **Batch Registration**: Register multiple users at once
+- **Role-Based Access**: Separate interfaces for regular users and administrators
+- **Authentication**: Secure login with username and password validation
 
 
-## Installation 📦
+### 📚 Playlist Management
 
-1. Clone or download the project repository to your local machine. 📥
-2. Navigate to the project directory containing the source code. 📂
-3. Compile the Java files:
+- **Create Playlists**: Build personalized music collections
+- **Add/Remove Songs**: Easily modify playlist contents
+- **Update Song Details**: Edit song titles and artist information
+- **Playback Simulation**: "Play" songs by displaying their details
 
-```shellscript
-javac MusicPlaylistSystem.java
+
+### 👨‍💼 Admin Dashboard
+
+- **User Administration**: View and manage all registered users
+- **System Overview**: Access all playlists across the system
+- **Content Management**: Examine any user's playlist contents
+- **User Removal**: Delete user accounts when necessary
+
+
+### 💾 Data Persistence
+
+- **File-Based Storage**: All data is saved to text files for persistence
+- **Automatic Loading**: User data and playlists load automatically on startup
+- **Real-Time Saving**: Changes are immediately written to storage files
+
+
+### 🧠 Data Structures Implementation
+
+- **Custom Linked Lists**: Efficient implementation of singly linked lists
+- **Dynamic Memory Management**: Flexible storage that grows as needed
+- **Optimized Traversal**: Fast access to users, playlists, and songs
+
+
+## 🛠️ Technical Implementation
+
+### Core Classes
+
+```plaintext
+PlaylistManager
+├── User                 // Stores user credentials and role
+├── Song                 // Represents a song with title and artist
+├── Playlist             // Contains a linked list of songs
+├── PlaylistList         // Manages multiple playlists
+└── UserList             // Manages multiple users
+```
+
+### File Structure
+
+- **users.txt**: Stores all user accounts with format `username,password,role`
+- **playlist-username-playlistname.txt**: Individual playlist files with format `title,artist` for each song
+
+
+## 📋 Usage Guide
+
+### Installation
+
+1. Ensure Java Development Kit (JDK) 8 or higher is installed
+2. Download the PlaylistManager.java file
+3. Compile the program:
+
+```plaintext
+javac PlaylistManager.java
 ```
 
 
 4. Run the application:
 
-```shellscript
-java MusicPlaylistSystem
+```plaintext
+java PlaylistManager
 ```
 
 
 
 
-## Usage 🎮
+### Main Menu
 
-### Launch the Application 🚀
+```plaintext
+=== Music Playlist System ===
+1. Login
+2. Register
+3. Register Multiple Users
+4. Exit
+```
 
-Run the program to access the main menu.
+### User Menu
 
-### Main Menu Options:
+```plaintext
+=== User Menu ===
+1. Create a playlist
+2. Add songs to a playlist
+3. Remove songs from a playlist
+4. Play a song from a playlist
+5. Update an existing playlist
+6. Logout
+```
 
-- **Login 🔑**: Enter a registered username and password.
-- **Register ✍️**: Create a new user account with a unique username and password.
-- **Exit 🚪**: Close the application.
+### Admin Menu
 
+```plaintext
+=== Admin Menu ===
+1. View all users
+2. Remove a user
+3. View all playlists
+4. View all songs in a playlist
+5. Logout
+```
 
-### Logged-In Menu:
+## 🔍 Key Implementation Details
 
-- **Create a Playlist 📝**: Enter a unique playlist name.
-- **Add Songs ➕**: Select a playlist and input song name and artist.
-- **Remove Songs ➖**: Choose a playlist and specify a song to remove.
-- **Play a Song ▶️**: Select a playlist and song to display its details.
-- **Logout 👋**: Return to the main menu.
+### Error Handling
 
-
-Follow console prompts to navigate and interact. 🖱️
-
-## Project Structure 🏗️
-
-### Core Classes:
-
-- **Song 🎶**: Stores song details (songName, artistName) with comparison and display methods.
-- **Playlist 📃**: Manages a SongLinkedList for songs with add, remove, and play operations.
-- **User 👨‍💻**: Handles user data (username, password) and a PlaylistLinkedList.
-- **MusicPlaylistSystem 🖥️**: Main class with console interface and menu logic.
-
-
-### Data Structures 📊:
-
-- **SongLinkedList**: Stores songs.
-- **PlaylistLinkedList**: Manages playlists with bubble sort.
-- **UserLinkedList**: Stores user accounts.
-- **StringLinkedList**: Holds playlist names.
-
-
-### Algorithm 🧮
-
-Bubble sort in PlaylistLinkedList for alphabetical sorting.
-
-## Example Workflow 🌟
-
-### Register a user:
-
-- **Input**: Username = "john_doe", Password = "pass123"
-- **Output**: "User john_doe registered successfully!" ✅
+- Input validation for numeric entries
+- Checks for existing usernames during registration
+- Validation of playlist and song selections
 
 
-### Log in:
+### File I/O Operations
 
-- **Input**: Username = "john_doe", Password = "pass123"
-- **Output**: "Welcome john_doe!" 👋
-
-
-### Create a playlist:
-
-- **Input**: Playlist name = "Rock Hits"
-- **Output**: "Playlist 'Rock Hits' created successfully!" 🎉
+- Buffered reading and writing for efficient file operations
+- Automatic file creation when needed
+- Proper file closing to prevent resource leaks
 
 
-### Add a song:
+### Data Structure Operations
 
-- **Input**: Playlist = "Rock Hits", Song = "Sweet Child O' Mine", Artist = "Guns N' Roses"
-- **Output**: "Sweet Child O' Mine by Guns N' Roses added successfully to Rock Hits" 🎸
-
-
-### Play a song:
-
-- **Input**: Playlist = "Rock Hits", Song index = 1
-- **Output**: "Now playing: Sweet Child O' Mine by Guns N' Roses" ▶️
+- Insertion at the end of linked lists for users, playlists, and songs
+- Traversal algorithms for finding and displaying items
+- Removal algorithms that handle edge cases (first item, last item, etc.)
 
 
-## Contributing 🤝
+## 🚀 Getting Started
 
-Contributions are welcome! To contribute:
+1. **First Launch**: On first run, an admin account is automatically created (username: "admin", password: "admin123")
+2. **Login**: Access the system using your credentials or register a new account
+3. **Create Playlists**: Start building your music collection
+4. **Add Songs**: Populate your playlists with your favorite music
+5. **Enjoy**: Navigate through your music collection with ease
 
-1. **Fork the repository.** 🍴
-2. **Create a branch for your feature or bug fix.** 🌿
-3. **Submit a pull request with a detailed description.** 📬
 
+## 💡 Future Enhancements
 
-## License 📜
-
-This project is licensed under the MIT License. See the LICENSE file for details.
+- Graphical user interface
+- Search functionality for finding songs and playlists
+- Sorting options for organizing playlists
+- Import/export features for sharing playlists
+- Media player integration for actual music playback
