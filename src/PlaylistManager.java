@@ -150,6 +150,7 @@ public class PlaylistManager {
         }
 
         void display(String user) {
+            sort(); // Sort playlists before displaying
             int i = 1;
             Playlist temp = head;
             while (temp != null) {
@@ -183,6 +184,45 @@ public class PlaylistManager {
                     temp.next = p;
                 }
             }
+        }
+
+        void sort() {
+            if (head == null || head.next == null) {
+                return; // Empty or single-node list is already sorted
+            }
+
+            boolean swapped;
+            do {
+                swapped = false;
+                Playlist current = head;
+                Playlist prev = null;
+
+                while (current != null && current.next != null) {
+                    Playlist next = current.next;
+                    // Compare playlist names case-insensitively
+                    if (current.name.compareToIgnoreCase(next.name) > 0) {
+                        // Swap nodes
+                        swapped = true;
+                        if (prev == null) {
+                            // Swapping at the head
+                            head = next;
+                            current.next = next.next;
+                            next.next = current;
+                        } else {
+                            // Swapping in the middle or end
+                            prev.next = next;
+                            current.next = next.next;
+                            next.next = current;
+                        }
+                        // Update prev to point to the new position of current
+                        prev = next;
+                    } else {
+                        // No swap, move to next pair
+                        prev = current;
+                        current = next;
+                    }
+                }
+            } while (swapped); // Continue until no swaps are needed
         }
     }
 
@@ -578,7 +618,6 @@ public class PlaylistManager {
         }
     }
 
-    // New methods for saving and loading playlist data
     private static void savePlaylists(PlaylistList playlists) throws IOException {
         Playlist temp = playlists.head;
         while (temp != null) {
@@ -605,7 +644,6 @@ public class PlaylistManager {
             }
             br.close();
 
-            // Add the loaded playlist to the list
             if (playlists.head == null) playlists.head = playlist;
             else {
                 Playlist temp = playlists.head;
@@ -614,4 +652,3 @@ public class PlaylistManager {
             }
         }
     }
-}
