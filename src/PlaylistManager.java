@@ -389,6 +389,24 @@ public class PlaylistManager {
     }
 
     public static void main(String[] args) throws IOException {
+        String CYAN = "\u001B[36m";
+        String MAGENTA = "\u001B[35m";
+        String GREEN = "\u001B[32m";
+        String YELLOW = "\u001B[33m";
+        String RESET = "\u001B[0m";
+
+        System.out.println(GREEN + "==================================================" + RESET);
+        System.out.println(CYAN + "  _____   __  __   _____ " + RESET);
+        System.out.println(CYAN + " |  __ \\ |  \\/  | / ____|" + RESET);
+        System.out.println(CYAN + " | |__) || \\  / || (___  " + RESET);
+        System.out.println(CYAN + " |  ___/ | |\\/| | \\___ \\ " + RESET);
+        System.out.println(CYAN + " | |     | |  | | ____) |" + RESET);
+        System.out.println(CYAN + " |_|     |_|  |_||_____/ " + RESET);
+        System.out.println(CYAN + "                         " + RESET);
+        System.out.println(GREEN + "==================================================" + RESET);
+        System.out.println(YELLOW + "MUSIC PLAYLIST MANAGEMENT SYSTEM" + RESET);
+        System.out.println(YELLOW + "    Manage your playlists and songs with ease!" + RESET);
+
         UserList users = new UserList();
         users.load();
         if (!users.exists("admin")) {
@@ -397,9 +415,12 @@ public class PlaylistManager {
         }
 
         while (true) {
-            System.out.println("\n=== Music Playlist System ===");
-            System.out.println("1. Login\n2. Register\n3. Register Multiple Users\n4. Exit");
-            System.out.print("Choose an option: ");
+            System.out.println(CYAN + "\n=== Music Playlist System ===" + RESET);
+            System.out.println(MAGENTA + "1. Login" + RESET);
+            System.out.println(MAGENTA + "2. Register" + RESET);
+            System.out.println(MAGENTA + "3. Register Multiple Users" + RESET);
+            System.out.println(MAGENTA + "4. Exit" + RESET);
+            System.out.print(YELLOW + "Choose an option: " + RESET);
             int ch = Integer.parseInt(sc.nextLine());
 
             if (ch == 1) {
@@ -426,7 +447,7 @@ public class PlaylistManager {
             } else if (ch == 3) {
                 registerMultipleUsers(users);
             } else if (ch == 4) {
-                System.out.println("Thank you for using Music Playlist System. Goodbye!");
+                System.out.println(YELLOW+"Thank you for using Music Playlist System. Goodbye!"+RESET);
                 break;
             } else System.out.println("Invalid choice.");
         }
@@ -467,16 +488,24 @@ public class PlaylistManager {
     static void userMenu(String username) throws IOException {
         PlaylistList playlists = new PlaylistList();
         playlists.loadAll(username);
+        String CYAN = "\u001B[36m";
+        String YELLOW = "\u001B[33m";
+        String GREEN = "\u001B[32m";
+        String MAGENTA = "\u001B[35m";
+        String RESET = "\u001B[0m";
 
         while (true) {
-            System.out.println("\n=== User Menu ===");
-            System.out.println("1. Create a playlist");
-            System.out.println("2. Add songs to a playlist");
-            System.out.println("3. Remove songs from a playlist");
-            System.out.println("4. Play a song from a playlist");
-            System.out.println("5. Update an existing playlist");
-            System.out.println("6. Logout");
-            System.out.print("Choose an option: ");
+            System.out.println(GREEN + "\n===================================" + RESET);
+            System.out.println(CYAN + "=== User Menu ===" + RESET);
+            System.out.println(GREEN + "===================================" + RESET);
+            System.out.println(MAGENTA + "1. Create a playlist" + RESET);
+            System.out.println(MAGENTA + "2. Add songs to a playlist" + RESET);
+            System.out.println(MAGENTA + "3. Remove songs from a playlist" + RESET);
+            System.out.println(MAGENTA + "4. Play a song from a playlist" + RESET);
+            System.out.println(MAGENTA + "5. Update an existing playlist" + RESET);
+            System.out.println(MAGENTA + "6. Logout" + RESET);
+            System.out.println(GREEN + "===================================" + RESET);
+            System.out.print(YELLOW + "Choose an option: " + RESET);
             int ch = Integer.parseInt(sc.nextLine());
 
             if (ch == 1) {
@@ -489,14 +518,14 @@ public class PlaylistManager {
                 else {
                     System.out.println("Your playlists:");
                     playlists.display(username);
-                    System.out.print("Choose a playlist (1-N): ");
+                    System.out.print(YELLOW + "Choose a playlist (1-N): " + RESET);
                     int idx = Integer.parseInt(sc.nextLine());
                     Playlist p = playlists.get(idx);
                     if (p == null) System.out.println("Invalid selection.");
                     else {
-                        System.out.print("Enter song name: ");
+                        System.out.print(YELLOW + "Enter song name: " + RESET);
                         String t = sc.nextLine();
-                        System.out.print("Enter artist name: ");
+                        System.out.print(YELLOW + "Enter artist name: " + RESET);
                         String a = sc.nextLine();
                         p.addSong(t, a);
                         p.saveToFile(username);
@@ -506,13 +535,13 @@ public class PlaylistManager {
             } else if (ch == 3) {
                 System.out.println("Your playlists:");
                 playlists.display(username);
-                System.out.print("Choose a playlist: ");
+                System.out.print(YELLOW + "Choose a playlist: " + RESET);
                 int idx = Integer.parseInt(sc.nextLine());
                 Playlist p = playlists.get(idx);
                 if (p != null) {
                     p.loadFromFile(username);
                     p.displaySongs();
-                    int s = getIntInput("Enter song number to remove: ");
+                    int s = getIntInput(YELLOW + "Enter song number to remove: " + RESET);
 
                     if (p.removeSong(s)) {
                         p.saveToFile(username);
@@ -521,13 +550,13 @@ public class PlaylistManager {
                 }
             } else if (ch == 4) {
                 playlists.display(username);
-                System.out.print("Choose a playlist: ");
+                System.out.print(YELLOW + "Choose a playlist: " + RESET);
                 int idx = Integer.parseInt(sc.nextLine());
                 Playlist p = playlists.get(idx);
                 if (p != null) {
                     p.loadFromFile(username);
                     p.displaySongs();
-                    System.out.print("Choose a song to play: ");
+                    System.out.print(YELLOW + "Choose a song to play: " + RESET);
                     int s = Integer.parseInt(sc.nextLine());
                     Song song = p.getSong(s);
                     if (song != null) System.out.println("Now playing: " + song.title + " by " + song.artist);
@@ -536,21 +565,29 @@ public class PlaylistManager {
             } else if (ch == 5) {
                 updatePlaylist(username, playlists);
             } else if (ch == 6) {
-                System.out.println("Logged out successfully.");
+                System.out.println(YELLOW + "Logged out successfully." + RESET);
                 break;
             } else System.out.println("Invalid choice.");
         }
     }
 
     static void adminMenu(UserList users) throws IOException {
+        String CYAN = "\u001B[36m";
+        String YELLOW = "\u001B[33m";
+        String GREEN = "\u001B[32m";
+        String MAGENTA = "\u001B[35m";
+        String RESET = "\u001B[0m";
         while (true) {
-            System.out.println("\n=== Admin Menu ===");
-            System.out.println("1. View all users");
-            System.out.println("2. Remove a user");
-            System.out.println("3. View all playlists");
-            System.out.println("4. View all songs in a playlist");
-            System.out.println("5. Logout");
-            System.out.print("Choose an option: ");
+            System.out.println(GREEN + "\n===================================" + RESET);
+            System.out.println(CYAN + "=== Admin Menu ===" + RESET);
+            System.out.println(GREEN + "===================================" + RESET);
+            System.out.println(MAGENTA + "1. View all users" + RESET);
+            System.out.println(MAGENTA + "2. Remove a user" + RESET);
+            System.out.println(MAGENTA + "3. View all playlists" + RESET);
+            System.out.println(MAGENTA + "4. View all songs in a playlist" + RESET);
+            System.out.println(MAGENTA + "5. Logout" + RESET);
+            System.out.println(GREEN + "===================================" + RESET);
+            System.out.print(YELLOW + "Choose an option: " + RESET);
             int ch = Integer.parseInt(sc.nextLine());
 
             if (ch == 1) {
@@ -558,7 +595,7 @@ public class PlaylistManager {
                 users.display();
             } else if (ch == 2) {
                 users.display();
-                System.out.print("Choose user to remove: ");
+                System.out.print(YELLOW + "Choose user to remove: " + RESET);
                 int idx = Integer.parseInt(sc.nextLine());
                 if (users.remove(idx)) {
                     users.save();
@@ -586,7 +623,7 @@ public class PlaylistManager {
             } else if (ch == 4) {
                 System.out.println("\n=== View Songs in Playlist ===");
                 users.display();
-                System.out.print("Choose a user: ");
+                System.out.print(YELLOW + "Choose a user: " + RESET);
                 int uidx = Integer.parseInt(sc.nextLine());
                 User u = users.get(uidx);
                 if (u == null) System.out.println("Invalid user selection.");
@@ -612,7 +649,7 @@ public class PlaylistManager {
                     }
                 }
             } else if (ch == 5) {
-                System.out.println("Logged out successfully.");
+                System.out.println(YELLOW + "Logged out successfully." + RESET);
                 break;
             } else System.out.println("Invalid option.");
         }
