@@ -1,8 +1,17 @@
-### 🎵 Music Playlist System
+<h1 align="center">🎵 Music Playlist System</h1>
+
+<p align="center">
+  <img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExdm1xZDR3bjFxbm04YTY5cjVvdml4YXR5c29mN3NpbmZsMzVobXI1MyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Sl7OlpTiHi9pPPZKp4/giphy.gif" width="250"/>
+</p>
+
 
 ## 📖 Overview
 
 The Music Playlist System is a Java-based console application that manages music playlists using custom-implemented data structures. It uses singly linked lists to efficiently store and manage users, playlists, and songs, providing a comprehensive music management solution with persistent storage.
+
+
+![Screenshot 2025-05-11 163736](https://github.com/user-attachments/assets/25fc463f-2306-4f5a-941f-0c04af0d1b4f)
+
 
 ## ✨ Features
 
