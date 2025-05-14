@@ -403,10 +403,18 @@ public class PlaylistManager {
         System.out.println(CYAN + " | |     | |  | | ____) |" + RESET);
         System.out.println(CYAN + " |_|     |_|  |_||_____/ " + RESET);
         System.out.println(CYAN + "                         " + RESET);
+        System.out.println(YELLOW + "PLAYLIST MANAGEMENT SYSTEM" + RESET);
+        System.out.println(MAGENTA + "~ Manage your playlists and songs with ease!" + RESET);
         System.out.println(GREEN + "==================================================" + RESET);
-        System.out.println(YELLOW + "MUSIC PLAYLIST MANAGEMENT SYSTEM" + RESET);
-        System.out.println(YELLOW + "    Manage your playlists and songs with ease!" + RESET);
 
+        System.out.println(YELLOW + "Team Members:" + RESET);
+        System.out.println(GREEN + "- Anmol" + RESET);
+        System.out.println(GREEN + "- Jiya" + RESET);
+        System.out.println(GREEN + "- Anshu Dhawan" + RESET);
+        System.out.println(GREEN + "- Damandeep Singh" + RESET);
+        System.out.println(MAGENTA + "==================================================" + RESET);
+
+        
         UserList users = new UserList();
         users.load();
         if (!users.exists("admin")) {
