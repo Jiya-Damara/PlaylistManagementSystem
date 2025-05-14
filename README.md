@@ -1,18 +1,53 @@
-<h1 align="center">🎵 Music Playlist System</h1>
+<h1 align="center">🎵Playlist Management System</h1>
+<h5 align="center"><i>Harmony in your terminal, one playlist at a time.</i></h5>
 
+<br>
 <p align="center">
   <img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExdm1xZDR3bjFxbm04YTY5cjVvdml4YXR5c29mN3NpbmZsMzVobXI1MyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Sl7OlpTiHi9pPPZKp4/giphy.gif" width="250"/>
 </p>
 
+---
 
 ## 📖 Overview
 
 The Music Playlist System is a Java-based console application that manages music playlists using custom-implemented data structures. It uses singly linked lists to efficiently store and manage users, playlists, and songs, providing a comprehensive music management solution with persistent storage.
 
 
-![Screenshot 2025-05-11 163736](https://github.com/user-attachments/assets/25fc463f-2306-4f5a-941f-0c04af0d1b4f)
+<img src="https://github.com/user-attachments/assets/c9df9abe-faf2-446a-a83d-f830ceb1b16e" alt="Welcome Screen" width="700"/>
 
 
+---
+## 👥 Team Members
+
+<div align="center">
+  
+<table>
+<tr>
+<td align="center">
+  <b>Anmol</b><br>
+  <sub>Integrated DSA Concepts, Java Structure & Terminal UI Design</sub>
+</td>
+<td align="center">
+  <b>Jiya</b><br>
+  <sub>Error Handling & Terminal UI Design</sub>
+</td>
+</tr>
+<tr>
+<td align="center">
+  <b>Anshu Dhawan</b><br>
+  <sub>Data Storage & Retrieval</sub>
+</td>
+<td align="center">
+  <b>Damandeep Singh</b><br>
+  <sub>Documentation, Report Writing & Testing</sub>
+</td>
+</tr>
+</table>
+
+
+</div>
+
+---
 ## ✨ Features
 
 ### 👤 User Management
@@ -22,7 +57,7 @@ The Music Playlist System is a Java-based console application that manages music
 - **Role-Based Access**: Separate interfaces for regular users and administrators
 - **Authentication**: Secure login with username and password validation
 
-
+---
 ### 📚 Playlist Management
 
 - **Create Playlists**: Build personalized music collections
@@ -30,14 +65,14 @@ The Music Playlist System is a Java-based console application that manages music
 - **Update Song Details**: Edit song titles and artist information
 - **Playback Simulation**: "Play" songs by displaying their details
 
-
+---
 ### 👨‍💼 Admin Dashboard
 
 - **User Administration**: View and manage all registered users
 - **System Overview**: Access all playlists across the system
 - **Content Management**: Examine any user's playlist contents
 - **User Removal**: Delete user accounts when necessary
-
+---
 
 ### 💾 Data Persistence
 
@@ -45,6 +80,7 @@ The Music Playlist System is a Java-based console application that manages music
 - **Automatic Loading**: User data and playlists load automatically on startup
 - **Real-Time Saving**: Changes are immediately written to storage files
 
+---
 
 ### 🧠 Data Structures Implementation
 
@@ -52,7 +88,7 @@ The Music Playlist System is a Java-based console application that manages music
 - **Dynamic Memory Management**: Flexible storage that grows as needed
 - **Optimized Traversal**: Fast access to users, playlists, and songs
 
-
+---
 ## 🛠️ Technical Implementation
 
 ### Core Classes
@@ -65,13 +101,13 @@ PlaylistManager
 ├── PlaylistList         // Manages multiple playlists
 └── UserList             // Manages multiple users
 ```
-
+---
 ### File Structure
 
 - **users.txt**: Stores all user accounts with format `username,password,role`
 - **playlist-username-playlistname.txt**: Individual playlist files with format `title,artist` for each song
 
-
+---
 ## 📋 Usage Guide
 
 ### Installation
@@ -92,7 +128,7 @@ java PlaylistManager
 ```
 
 
-
+---
 
 ### Main Menu
 
@@ -126,7 +162,7 @@ java PlaylistManager
 4. View all songs in a playlist
 5. Logout
 ```
-
+---
 ## 🔍 Key Implementation Details
 
 ### Error Handling
@@ -149,7 +185,7 @@ java PlaylistManager
 - Traversal algorithms for finding and displaying items
 - Removal algorithms that handle edge cases (first item, last item, etc.)
 
-
+---
 ## 🚀 Getting Started
 
 1. **First Launch**: On first run, an admin account is automatically created (username: "admin", password: "admin123")
@@ -158,11 +194,3 @@ java PlaylistManager
 4. **Add Songs**: Populate your playlists with your favorite music
 5. **Enjoy**: Navigate through your music collection with ease
 
-
-## 💡 Future Enhancements
-
-- Graphical user interface
-- Search functionality for finding songs and playlists
-- Sorting options for organizing playlists
-- Import/export features for sharing playlists
-- Media player integration for actual music playback
