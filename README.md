@@ -25,7 +25,7 @@ The Music Playlist System is a Java-based console application that manages music
 <tr>
 <td align="center">
   <b>Anmol</b><br>
-  <sub>Integrated DSA Concepts, Java Structure & Terminal UI Design</sub>
+  <sub>Integrated DSA Concepts, Java Structure</sub>
 </td>
 <td align="center">
   <b>Jiya</b><br>
@@ -35,11 +35,11 @@ The Music Playlist System is a Java-based console application that manages music
 <tr>
 <td align="center">
   <b>Anshu Dhawan</b><br>
-  <sub>Data Storage & Retrieval</sub>
+  <sub>Data Storage & admin dashboard</sub>
 </td>
 <td align="center">
   <b>Damandeep Singh</b><br>
-  <sub>Documentation, Report Writing & Testing</sub>
+  <sub>Documentation and Testing</sub>
 </td>
 </tr>
 </table>
